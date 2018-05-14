@@ -15,9 +15,9 @@ namespace BO
         public DateTime Duree { get; set;  }
         public string Theme { get; set; }
         public string Descriptif { get; set; }
-        public virtual Images Image { get; set; }
-        public virtual Clients Client { get; set; }
-        public virtual Parkings Parkings { get; set; }
+        public virtual Image Image { get; set; }
+        //public virtual client client { get; set; }
+        public virtual Parking Parkings { get; set; }
 
     }
 }
