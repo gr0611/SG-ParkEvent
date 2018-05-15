@@ -14,7 +14,7 @@ namespace BO
         public string Email { get; set; }
         public DateTime DateDeNaissance { get; set; }
         //J'ajoute 'virtual' si je fais appel à un objet externe
-       // public virtual Event Event { get; set; }
-        //public virtual Parking Parking { get; set; }
+         public virtual Evenement Evenements { get; set; }
+         public virtual Parking Parkings { get; set; }
     }
 }
