@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BO
 {
@@ -11,6 +13,7 @@ namespace BO
         public int Id { get; set; }
         public string Nom { get; set; }
         public string Lieu { get; set; }
+        [DisplayName("Date et heure de l'évènement")]
         public DateTime DateHeure { get; set; }
         public TimeSpan Duree { get; set;  }
         public string Theme { get; set; }
