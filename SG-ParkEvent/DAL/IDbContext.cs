@@ -9,9 +9,9 @@ using System.Data.Entity;
 
 namespace DAL
 {
-    class IDbContext
-    {
-        //DbSet<Client> Clients { get; set; }
-        //DbSet<Evenement> Competitors { get; set; }       
-    }
+    public interface IDbContext
+        {
+            DbSet<Client> Clients { get; set; }
+            DbSet<Evenement> Evenements { get; set; }
+        }     
 }
