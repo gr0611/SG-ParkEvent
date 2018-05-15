@@ -41,6 +41,15 @@
         <dd>
             @Html.DisplayFor(model => model.DateDeNaissance)
         </dd>
+        <dt>
+            @Html.DisplayName("Inscrit aux évènements")
+        </dt>
+        <dd>
+            @foreach (var evenement in Model.Evenements)
+            {
+                @Html.DisplayFor(modelItem => evenement.Nom)
+            }
+        </dd>
 
     </dl>
 </div>

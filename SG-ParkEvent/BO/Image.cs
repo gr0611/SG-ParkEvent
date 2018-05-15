@@ -11,5 +11,6 @@ namespace BO
         public int Id { get; set; }
         public string NomImage { get; set; }
         public string PathImage { get; set; }
+        public Evenement Evenement { get; set; }
     }
 }

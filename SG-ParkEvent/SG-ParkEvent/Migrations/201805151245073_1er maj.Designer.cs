@@ -6,14 +6,14 @@ namespace SG_ParkEvent.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class initial : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class _1ermaj : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_1ermaj));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805151002580_initial"; }
+            get { return "201805151245073_1er maj"; }
         }
         
         string IMigrationMetadata.Source

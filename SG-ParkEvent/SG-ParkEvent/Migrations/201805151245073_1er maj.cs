@@ -3,7 +3,7 @@ namespace SG_ParkEvent.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class _1ermaj : DbMigration
     {
         public override void Up()
         {
@@ -27,14 +27,11 @@ namespace SG_ParkEvent.Migrations
                         Nom = c.String(),
                         Lieu = c.String(),
                         DateHeure = c.DateTime(nullable: false),
-                        Duree = c.DateTime(nullable: false),
+                        Duree = c.Time(nullable: false, precision: 7),
                         Theme = c.String(),
                         Descriptif = c.String(),
-                        Image_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Images", t => t.Image_Id)
-                .Index(t => t.Image_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Images",
@@ -43,8 +40,11 @@ namespace SG_ParkEvent.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         NomImage = c.String(),
                         PathImage = c.String(),
+                        Evenement_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Evenements", t => t.Evenement_Id)
+                .Index(t => t.Evenement_Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -135,7 +135,7 @@ namespace SG_ParkEvent.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Evenements", "Image_Id", "dbo.Images");
+            DropForeignKey("dbo.Images", "Evenement_Id", "dbo.Evenements");
             DropForeignKey("dbo.EvenementClients", "Client_Id", "dbo.Clients");
             DropForeignKey("dbo.EvenementClients", "Evenement_Id", "dbo.Evenements");
             DropIndex("dbo.EvenementClients", new[] { "Client_Id" });
@@ -146,7 +146,7 @@ namespace SG_ParkEvent.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Evenements", new[] { "Image_Id" });
+            DropIndex("dbo.Images", new[] { "Evenement_Id" });
             DropTable("dbo.EvenementClients");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");

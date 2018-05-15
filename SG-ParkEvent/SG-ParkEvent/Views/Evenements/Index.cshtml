@@ -29,6 +29,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Descriptif)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client)
+        </th>
         <th></th>
     </tr>
 
@@ -51,6 +54,13 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Descriptif)
+        </td>
+        <td>
+            @foreach (var client in item.Client)
+            {
+                @Html.DisplayFor(modelItem => client.Nom)
+            }
+            
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

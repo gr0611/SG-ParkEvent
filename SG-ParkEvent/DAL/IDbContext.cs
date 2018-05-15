@@ -13,6 +13,6 @@ namespace DAL
         {
             DbSet<Client> Clients { get; set; }
             DbSet<Evenement> Evenements { get; set; }
-
+            DbSet<Image> Images { get; set; }
     }     
 }

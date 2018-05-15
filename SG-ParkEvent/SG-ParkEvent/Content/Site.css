@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/* Ajout image homepage */
+.img-homepage {
+    height: 400px;
+    background: url('/Content/Image/img_front.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;     
+}
+.img-homepage h1 {
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    padding: 10px 15px; 
+}

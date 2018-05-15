@@ -206,9 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805151002580_initial.cs" />
-    <Compile Include="Migrations\201805151002580_initial.Designer.cs">
-      <DependentUpon>201805151002580_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201805151245073_1er maj.cs" />
+    <Compile Include="Migrations\201805151245073_1er maj.Designer.cs">
+      <DependentUpon>201805151245073_1er maj.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -220,6 +220,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\img_front.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -311,8 +312,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805151002580_initial.resx">
-      <DependentUpon>201805151002580_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805151245073_1er maj.resx">
+      <DependentUpon>201805151245073_1er maj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
