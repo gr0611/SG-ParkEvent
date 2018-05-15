@@ -16,8 +16,8 @@ namespace BO
         public string Theme { get; set; }
         public string Descriptif { get; set; }
         public virtual Image Image { get; set; }
-        public virtual Client Client { get; set; }
-        public virtual Parking Parkings { get; set; }
+        public virtual List<Client> Client { get; set; }
+        //public virtual List<Parking> Parkings { get; set; }
 
     }
 }

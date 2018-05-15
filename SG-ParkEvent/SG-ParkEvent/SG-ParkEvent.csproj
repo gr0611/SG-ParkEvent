@@ -204,13 +204,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805150839504_SG-Migration.cs" />
-    <Compile Include="Migrations\201805150839504_SG-Migration.Designer.cs">
-      <DependentUpon>201805150839504_SG-Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805150935085_BO_DAL.cs" />
-    <Compile Include="Migrations\201805150935085_BO_DAL.Designer.cs">
-      <DependentUpon>201805150935085_BO_DAL.cs</DependentUpon>
+    <Compile Include="Migrations\201805151002580_initial.cs" />
+    <Compile Include="Migrations\201805151002580_initial.Designer.cs">
+      <DependentUpon>201805151002580_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -293,14 +289,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805150839504_SG-Migration.resx">
-      <DependentUpon>201805150839504_SG-Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805150935085_BO_DAL.resx">
-      <DependentUpon>201805150935085_BO_DAL.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BO\BO.csproj">
       <Project>{ef08f095-e121-49db-a624-7acfcd97a3e8}</Project>
       <Name>BO</Name>
@@ -309,6 +297,11 @@
       <Project>{8cd66a09-1c51-40f5-a271-01ea1ab6faca}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805151002580_initial.resx">
+      <DependentUpon>201805151002580_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

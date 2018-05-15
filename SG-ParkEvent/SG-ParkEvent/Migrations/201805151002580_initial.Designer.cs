@@ -7,13 +7,13 @@ namespace SG_ParkEvent.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class SGMigration : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SGMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805150839504_SG-Migration"; }
+            get { return "201805151002580_initial"; }
         }
         
         string IMigrationMetadata.Source

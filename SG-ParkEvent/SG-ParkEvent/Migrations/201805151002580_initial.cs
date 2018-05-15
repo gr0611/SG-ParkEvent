@@ -3,10 +3,49 @@ namespace SG_ParkEvent.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class SGMigration : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Clients",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nom = c.String(),
+                        Prenom = c.String(),
+                        Email = c.String(),
+                        DateDeNaissance = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Evenements",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nom = c.String(),
+                        Lieu = c.String(),
+                        DateHeure = c.DateTime(nullable: false),
+                        Duree = c.DateTime(nullable: false),
+                        Theme = c.String(),
+                        Descriptif = c.String(),
+                        Image_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Images", t => t.Image_Id)
+                .Index(t => t.Image_Id);
+            
+            CreateTable(
+                "dbo.Images",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        NomImage = c.String(),
+                        PathImage = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -75,6 +114,19 @@ namespace SG_ParkEvent.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.EvenementClients",
+                c => new
+                    {
+                        Evenement_Id = c.Int(nullable: false),
+                        Client_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Evenement_Id, t.Client_Id })
+                .ForeignKey("dbo.Evenements", t => t.Evenement_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Clients", t => t.Client_Id, cascadeDelete: true)
+                .Index(t => t.Evenement_Id)
+                .Index(t => t.Client_Id);
+            
         }
         
         public override void Down()
@@ -83,17 +135,27 @@ namespace SG_ParkEvent.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Evenements", "Image_Id", "dbo.Images");
+            DropForeignKey("dbo.EvenementClients", "Client_Id", "dbo.Clients");
+            DropForeignKey("dbo.EvenementClients", "Evenement_Id", "dbo.Evenements");
+            DropIndex("dbo.EvenementClients", new[] { "Client_Id" });
+            DropIndex("dbo.EvenementClients", new[] { "Evenement_Id" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Evenements", new[] { "Image_Id" });
+            DropTable("dbo.EvenementClients");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Images");
+            DropTable("dbo.Evenements");
+            DropTable("dbo.Clients");
         }
     }
 }
