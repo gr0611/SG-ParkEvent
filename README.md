@@ -18,3 +18,17 @@
   
 - Intégration de l'API Parking Rennes 
 - Création des BO 
+
+### Mardi 15/05
+
+- Création d'un ReadMe.md
+- Création de la bdd et connexion entre bdd et visual studio
+- Utilisation d'entity framework pour envoyer le modele de base de données (code first)
+  - Enable-Migrations
+  - Add-Migration
+  - Update-Database
+- Configuration SQL Server
+  - Gestionnaire de configuration SQL
+  - Activer TCP/IP
+- Création des controllers et des vues pour évènements et client
+- Style homepage et ajout de champs
