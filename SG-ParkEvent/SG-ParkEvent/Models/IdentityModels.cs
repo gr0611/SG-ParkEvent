@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using BO;
+using DAL;
 
 namespace SG_ParkEvent.Models
 {
@@ -29,5 +31,11 @@ namespace SG_ParkEvent.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Client> Client { get; set; }
+
+        public DbSet<Evenement> Evenement { get; set; }
+
+
     }
 }
