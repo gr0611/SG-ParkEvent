@@ -1,0 +1,66 @@
+﻿@model BO.Evenement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Evenement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateHeure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateHeure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriptif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriptif)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
