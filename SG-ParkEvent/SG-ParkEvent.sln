@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8
 		{EF08F095-E121-49DB-A624-7ACFCD97A3E8} = {EF08F095-E121-49DB-A624-7ACFCD97A3E8}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SG-ParkEvent", "SG-ParkEvent\SG-ParkEvent.csproj", "{9808AB14-0189-47C8-A8A8-E958AB7BC04D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{8CD66A09-1C51-40F5-A271-01EA1AB6FACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CD66A09-1C51-40F5-A271-01EA1AB6FACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CD66A09-1C51-40F5-A271-01EA1AB6FACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9808AB14-0189-47C8-A8A8-E958AB7BC04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9808AB14-0189-47C8-A8A8-E958AB7BC04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9808AB14-0189-47C8-A8A8-E958AB7BC04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9808AB14-0189-47C8-A8A8-E958AB7BC04D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
