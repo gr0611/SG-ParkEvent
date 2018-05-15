@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class Image
+    public class Image
     {
         public int Id { get; set; }
         public string NomImage { get; set; }
