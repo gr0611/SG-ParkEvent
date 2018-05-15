@@ -46,9 +46,9 @@ namespace DAL
             dbContext.SaveChanges();
         }
 
-        public virtual void Update(T competitor)
+        public virtual void Update(T element)
         {
-            dbContext.Entry(competitor).State = EntityState.Modified;
+            dbContext.Entry(element).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
 
