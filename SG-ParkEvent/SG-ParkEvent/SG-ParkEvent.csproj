@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201805151245073_1er maj.Designer.cs">
       <DependentUpon>201805151245073_1er maj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805160645299_ajout image.cs" />
+    <Compile Include="Migrations\201805160645299_ajout image.Designer.cs">
+      <DependentUpon>201805160645299_ajout image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -314,6 +318,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805151245073_1er maj.resx">
       <DependentUpon>201805151245073_1er maj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805160645299_ajout image.resx">
+      <DependentUpon>201805160645299_ajout image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

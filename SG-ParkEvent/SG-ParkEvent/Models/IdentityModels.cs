@@ -36,6 +36,8 @@ namespace SG_ParkEvent.Models
 
         public DbSet<Evenement> Evenement { get; set; }
 
+        public DbSet<Image> Image { get; set; }
+
 
     }
 }
