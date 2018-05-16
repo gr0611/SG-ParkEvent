@@ -1,7 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+﻿
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -38,4 +35,34 @@ textarea {
     color: white;
     background: rgba(0,0,0,0.3);
     padding: 10px 15px; 
+}
+
+/* Gestion style card */
+.row .col {
+    padding: 10px;
+}
+.card .card-image .card-title {
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-content .lieu span i, .card-content .heure span i {
+    margin-right : 5px !important;
+    color: teal;
+}
+
+.card .card-action { 
+    padding: 10px;
+}
+.card .card-action ul {
+    display: inline-block;
+}
+.card .card-action li {
+    float: left;
+}
+.card .card-action a {
+    color: white !important;
+    text-transform: capitalize !important;
+    font-size: 16px;
 }
