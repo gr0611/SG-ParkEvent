@@ -41,12 +41,16 @@ textarea {
 .row .col {
     padding: 10px;
 }
+
 .card .card-image .card-title {
     background: rgba(0,0,0,0.3);
     text-align: center;
     text-transform: uppercase;
 }
 
+.card .card-content {
+    min-height: 175px;
+}
 .card-content .lieu span i, .card-content .heure span i {
     margin-right : 5px !important;
     color: teal;
