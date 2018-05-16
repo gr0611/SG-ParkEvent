@@ -32,3 +32,11 @@
   - Activer TCP/IP
 - Création des controllers et des vues pour évènements et client
 - Style homepage et ajout de champs
+
+### Mercredi 16/05
+
+- Suppression partie client
+- Installation Materialize à la place de Bootstrap
+- Révision parcours client
+- API Google Maps : 
+  - Affichage de la map avec les markers sur les parkings rennais (utilisation api rennes métropole + api google maps)
