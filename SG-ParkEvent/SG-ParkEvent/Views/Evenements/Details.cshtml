@@ -23,10 +23,17 @@
 
 
 <div class="actions">
+@if (User.IsInRole("Administrateur"))
+{
     <p>
         @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
         @Html.ActionLink("Voir la liste des évènements", "Index") |
     </p>
+}
+else
+{
+    @Html.ActionLink("Voir la liste des évènements", "Index") 
+}
 </div>
 <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn modal-trigger pulse" href="#modal">Voir les parkings</a>
@@ -42,7 +49,8 @@
                     <p>
                         Nombre de places totales : 711 <br>
                         Nombre de places totales : 135 <br />
-                        Coût horaire : 0.40€ / heures
+                        Coût horaire : 0.40€ / heure <br/>
+                        Coût estimé : 4.20€
                     </p>
                     <a class="waves-effect waves-light btn modal-trigger secondary-content teal darken-4" href="#modal1"><i class="material-icons">add</i></a>
                     <div id="modal1" class="modal">
@@ -67,7 +75,8 @@
                     <p>
                         Nombre de places totales : 1035<br>
                         Nombre de places totales : 568<br />
-                        Coût horaire : 0.75€ / heures
+                        Coût horaire : 0.75€ / heure <br/>
+                        Coût estimé: 5.60€
                     </p>
                     <a class="waves-effect waves-light btn modal-trigger secondary-content teal darken-4" href="#modal2"><i class="material-icons">add</i></a>
                     <div id="modal2" class="modal">
@@ -91,7 +100,8 @@
                     <p>
                         Nombre de places totales : 152 <br>
                         Nombre de places totales : 52 <br />
-                        Coût horaire : 0.45€ / heures
+                        Coût horaire : 0.45€ / heure <br/>
+                        Coût estimé : 4.80€
                     </p>
                     <a class="waves-effect waves-light btn modal-trigger secondary-content teal darken-4" href="#modal3"><i class="material-icons">add</i></a>
                     <div id="modal3" class="modal">

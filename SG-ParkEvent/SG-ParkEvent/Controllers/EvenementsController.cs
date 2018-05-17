@@ -10,17 +10,17 @@ using BO;
 using SG_ParkEvent.Models;
 
 namespace SG_ParkEvent.Controllers
-{
+{ [Authorize]
     public class EvenementsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        [AllowAnonymous]
         // GET: Evenements
         public ActionResult Index()
         {
             return View(db.Evenement.ToList());
         }
-
+        [AllowAnonymous]
         // GET: Evenements/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,7 +35,7 @@ namespace SG_ParkEvent.Controllers
             }
             return View(evenement);
         }
-
+     
         // GET: Evenements/Create
         public ActionResult Create()
         {

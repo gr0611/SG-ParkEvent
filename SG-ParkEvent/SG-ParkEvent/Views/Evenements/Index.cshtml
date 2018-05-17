@@ -6,9 +6,13 @@
 
 <h2>Liste des évènements</h2>
 
-<p>
-    @Html.ActionLink("Ajouter un évènement", "Create")
-</p>
+@if (User.IsInRole("Administrateur"))
+{
+    <p>
+        @Html.ActionLink("Ajouter un évènement", "Create")
+    </p>
+}
+
 
 <div class="row">
 
@@ -29,9 +33,17 @@
                 </div>
                 <div class="card-action teal darken-3">
                     <ul>
-                        <li class="col s12 m4">@Html.ActionLink("Plus d'infos", "Details", new { id = item.Id })</li>
-                        <li class="col s12 m4">@Html.ActionLink("Modifier", "Edit", new { id = item.Id })</li>
-                        <li class="col s12 m4">@Html.ActionLink("Supprimer", "Delete", new { id = item.Id })</li>
+                        
+                        @if (User.IsInRole("Administrateur"))
+                        {
+                            <li class="col s12 m4">@Html.ActionLink("Plus d'infos", "Details", new { id = item.Id })</li>
+                            <li class="col s12 m4">@Html.ActionLink("Modifier", "Edit", new { id = item.Id })</li> 
+                            <li class="col s12 m4">@Html.ActionLink("Supprimer", "Delete", new { id = item.Id })</li>
+                        }
+                        else {
+                            <li class="col s12">@Html.ActionLink("Plus d'infos", "Details", new { id = item.Id })</li> 
+                        }
+                  
                     </ul>
                 </div>
             </div>

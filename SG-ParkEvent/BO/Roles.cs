@@ -9,6 +9,5 @@ namespace BO
     public static class Roles 
     {
         public const string Administrateur = "Administrateur";
-        public const string Client = "Client";
     }
 }
