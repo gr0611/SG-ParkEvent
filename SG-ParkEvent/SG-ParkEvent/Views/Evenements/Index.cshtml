@@ -20,7 +20,7 @@
 {
     <div class="col s12 m4">
 
-        <div class="card">
+        <div class="card z-depth-5">
             <div class="card-image">
                 <img src="~/Content/Image/img_front.jpg">
                 <span class="card-title">@Html.DisplayFor(modelItem => item.Nom)</span>
@@ -32,16 +32,16 @@
                         <div class="heure"><span><i class="material-icons">access_time</i>@Html.DisplayFor(modelItem => item.DateHeure)</span></div>
                 </div>
                 <div class="card-action teal darken-3">
-                    <ul>
+                    <ul class="icons-action">
                         
                         @if (User.IsInRole("Administrateur"))
                         {
-                            <li class="col s12 m4">@Html.ActionLink("Plus d'infos", "Details", new { id = item.Id })</li>
-                            <li class="col s12 m4">@Html.ActionLink("Modifier", "Edit", new { id = item.Id })</li> 
-                            <li class="col s12 m4">@Html.ActionLink("Supprimer", "Delete", new { id = item.Id })</li>
+                            <li class="action-icon col s12 m4"><a href="@Url.Action("Details", new { id = item.Id })"><i class="small material-icons white-text">info</i></a></li> 
+                            <li class="action-icon col s12 m4"><a href="@Url.Action("Edit", new { id=item.Id })"><i class="small material-icons white-text">mode_edit</i></a></li> 
+                            <li class="action-icon col s12 m4"><a href="@Url.Action("Delete", new { id = item.Id })"><i class="small material-icons white-text">delete_forever</i></a></li>
                         }
                         else {
-                            <li class="col s12">@Html.ActionLink("Plus d'infos", "Details", new { id = item.Id })</li> 
+                            <li class="action-icon col s12"><a href="@Url.Action("Details", new { id = item.Id })"><i class="small material-icons white-text">info</i></a></li> 
                         }
                   
                     </ul>

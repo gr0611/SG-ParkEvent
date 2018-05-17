@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @*@Scripts.Render("~/bundles/modernizr")*@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -15,16 +16,18 @@
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="~/Content/Materialize/js/materialize.min.js"></script>
     <script src="~/Content/js/JavaScript.js"></script>
-
+    @* Gestion de la map *@
+    <script src="~/Content/js/maps.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y&libraries=places"></script>
 </head>
-<body>
+<body onload="initialiser()">
     <div class="navbar-fixed">
         <nav class="teal darken-2">
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo center">SG Event</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="left hide-on-med-and-down">
-                    @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
                     <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
@@ -35,26 +38,26 @@
         </nav>
     </div>
 
-        <ul class="sidenav" id="mobile-demo">
-            @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
-            <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
-            <li>@Html.Partial("_LoginPartial")</li>
-        </ul>
+    <ul class="sidenav" id="mobile-demo">
+        @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
+        <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
+        <li>@Html.Partial("_LoginPartial")</li>
+    </ul>
 
-        
-        <div class="container">
-            @RenderBody()
-            <hr />
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer class="page-footer teal darken-2">
+        <div class="footer-copyright">
+            <p>&copy; @DateTime.Now.Year - My SG Application</p>
         </div>
-        <footer class="page-footer teal darken-2">
-            <div class="footer-copyright">
-                <p>&copy; @DateTime.Now.Year - My SG Application</p>
-            </div>
-        </footer>
+    </footer>
 
 
-        @Scripts.Render("~/bundles/jquery")
-        @*@Scripts.Render("~/bundles/bootstrap")*@
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
 </body>
 </html>
