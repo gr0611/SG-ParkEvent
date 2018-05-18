@@ -18,6 +18,8 @@ namespace BO
         public TimeSpan Duree { get; set;  }
         public string Theme { get; set; }
         public string Descriptif { get; set; }
+        public float Latitude { get; set; }
+        public float Longitude { get; set; }
         public virtual List<Image> Image { get; set; }
         public virtual List<Client> Client { get; set; }
         //public virtual List<Parking> Parkings { get; set; }
