@@ -231,8 +231,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Image\concert.jpg" />
+    <Content Include="Content\Image\congres.jpg" />
     <Content Include="Content\Image\img_front.jpg" />
     <Content Include="Content\Image\parking.jpg" />
+    <Content Include="Content\Image\qashqai.jpg" />
+    <Content Include="Content\Image\reunion.jpg" />
+    <Content Include="Content\js\autocomplete_google.js" />
     <Content Include="Content\js\JavaScript.js" />
     <Content Include="Content\js\maps.js" />
     <Content Include="Content\Materialize\css\materialize.css" />

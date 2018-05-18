@@ -16,48 +16,53 @@
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="~/Content/Materialize/js/materialize.min.js"></script>
     <script src="~/Content/js/JavaScript.js"></script>
-    @* Gestion de la map *@
-    <script src="~/Content/js/maps.js"></script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y&libraries=places"></script>
+
+  
 </head>
-<body onload="initialiser()">
-    <div class="navbar-fixed">
-        <nav class="teal darken-2">
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo center">SG Event</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="left hide-on-med-and-down">
-                    <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
-                </ul>
-                <ul class="right hide-on-med-and-down">
-                    <li>@Html.Partial("_LoginPartial")</li>
-                </ul>
+@*<body onload="initialiser()">*@
+<body>
+        <div class="navbar-fixed">
+            <nav class="teal darken-2">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo center">SG Event</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="left hide-on-med-and-down">
+                        <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
 
-            </div>
-        </nav>
-    </div>
-
-    <ul class="sidenav" id="mobile-demo">
-        @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
-        <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
-        <li>@Html.Partial("_LoginPartial")</li>
-    </ul>
-
-
-    <div class="container">
-        @RenderBody()
-        <hr />
-    </div>
-    <footer class="page-footer teal darken-2">
-        <div class="footer-copyright">
-            <p>&copy; @DateTime.Now.Year - My SG Application</p>
+                </div>
+            </nav>
         </div>
-    </footer>
+
+        <ul class="sidenav" id="mobile-demo">
+            @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
+            <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
+            <li>@Html.Partial("_LoginPartial")</li>
+        </ul>
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-    @RenderSection("scripts", required: false)
-</body>
+        <div class="container">
+            @RenderBody()
+            <hr />
+        </div>
+        <footer class="page-footer teal darken-2">
+            <div class="footer-copyright">
+                <p>&copy; @DateTime.Now.Year - My SG Application</p>
+            </div>
+        </footer>
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @*@Scripts.Render("~/bundles/bootstrap")*@
+        @RenderSection("scripts", required: false)
+        @* Gestion de la map *@
+        <script src="~/Content/js/maps.js"></script>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y&libraries=places&callback=initialiser"></script>
+        <script src="~/Content/js/autocomplete_google.js"></script>
+
+    </body>
 </html>

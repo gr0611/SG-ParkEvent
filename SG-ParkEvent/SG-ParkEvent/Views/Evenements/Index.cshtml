@@ -18,36 +18,38 @@
 
 @foreach (var item in Model)
 {
+  
     <div class="col s12 m4">
 
-        <div class="card z-depth-5">
-            <div class="card-image">
-                <img src="~/Content/Image/img_front.jpg">
-                <span class="card-title">@Html.DisplayFor(modelItem => item.Nom)</span>
+    <div class="card z-depth-5">
+        <div class="card-image">
+            <img src="~/Content/Image/img_front.jpg">
+            <span class="card-title">@Html.DisplayFor(modelItem => item.Nom)</span>
+        </div>
+        <div class="card-content">
+            <p>@Html.DisplayFor(modelItem => item.Descriptif)</p>
+            <div class="lieu">
+                <span><i class="material-icons">map</i>@Html.DisplayFor(modelItem => item.Lieu)</span></div>
+                    <div class="heure"><span><i class="material-icons">access_time</i>@Html.DisplayFor(modelItem => item.DateHeure)</span></div>
             </div>
-            <div class="card-content">
-                <p>@Html.DisplayFor(modelItem => item.Descriptif)</p>
-                <div class="lieu">
-                    <span><i class="material-icons">map</i>@Html.DisplayFor(modelItem => item.Lieu)</span></div>
-                        <div class="heure"><span><i class="material-icons">access_time</i>@Html.DisplayFor(modelItem => item.DateHeure)</span></div>
-                </div>
-                <div class="card-action teal darken-3">
-                    <ul class="icons-action">
+            <div class="card-action teal darken-3">
+                <ul class="icons-action">
                         
-                        @if (User.IsInRole("Administrateur"))
-                        {
-                            <li class="action-icon col s12 m4"><a href="@Url.Action("Details", new { id = item.Id })"><i class="small material-icons white-text">info</i></a></li> 
-                            <li class="action-icon col s12 m4"><a href="@Url.Action("Edit", new { id=item.Id })"><i class="small material-icons white-text">mode_edit</i></a></li> 
-                            <li class="action-icon col s12 m4"><a href="@Url.Action("Delete", new { id = item.Id })"><i class="small material-icons white-text">delete_forever</i></a></li>
-                        }
-                        else {
-                            <li class="action-icon col s12"><a href="@Url.Action("Details", new { id = item.Id })"><i class="small material-icons white-text">info</i></a></li> 
-                        }
-                  
-                    </ul>
-                </div>
-            </div>
+                    @if (User.IsInRole("Administrateur"))
+                    {
+                        <li class="action-icon col s6 m3"><a href="@Url.Action("Details", new { id = item.Id })"><i class="small material-icons white-text">info</i></a></li> 
+                        <li class="action-icon col s6 m3"><a href="@Url.Action("Edit", new { id=item.Id })"><i class="small material-icons white-text">mode_edit</i></a></li> 
+                        <li class="action-icon col s6 m3"><a href="@Url.Action("Delete", new { id = item.Id })"><i class="small material-icons white-text">delete_forever</i></a></li>
+                        <li class="action-icon col s6 m3"><i class="small material-icons white-text">content_copy</i></li>
 
+                    }
+                    else {
+                        <li class="action-icon col s12"><a href="@Url.Action("Details", new { id = item.Id })"><i class="small material-icons white-text">info</i></a></li> 
+                    }
+                  
+                </ul>
+            </div>
+        </div>
     </div>
     }
 </div>

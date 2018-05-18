@@ -10,7 +10,12 @@
 <hr />
 <div class="row">
     <div class="col s12 m6">
-        <img class="responsive-img" src="~/Content/Image/img_front.jpg">
+        <div class="carousel carousel-slider">
+            <a class="carousel-item" href="#one!"><img src="~/Content/Image/concert.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="~/Content/Image/congres.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="~/Content/Image/qashqai.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="~/Content/Image/reunion.jpg"></a>
+        </div>
     </div>
     <div class="descriptif col s12 m6">
         <p><i class="tiny material-icons teal-text">description</i>@Html.DisplayFor(model => model.Descriptif)</p>
@@ -88,4 +93,6 @@ else
             </div>
         </div>
     </div>
+
+
 

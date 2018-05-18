@@ -73,8 +73,7 @@ console.log("locations",locations);
      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 //new AutocompleteDirectionsHandler(map);
 
-var input = /** @type {!HTMLInputElement} */(
-           document.getElementById('pac-input'));
+var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'));
 
        var types = document.getElementById('type-selector');
        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);

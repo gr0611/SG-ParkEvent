@@ -10342,7 +10342,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     padding: 0, // Padding between non center items
     numVisible: 5, // Number of visible items in carousel
     fullWidth: false, // Change to full width styles
-    indicators: false, // Toggle indicators
+    indicators: true, // Toggle indicators
     noWrap: false, // Don't wrap around and cycle through items.
     onCycleTo: null // Callback for when a new slide is cycled to.
   };

@@ -47,7 +47,7 @@ namespace SG_ParkEvent.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom,Lieu,DateHeure,Duree,Theme,Descriptif, Longitude, Latitude")] Evenement evenement)
+        public ActionResult Create([Bind(Include = "Id,Nom,Lieu,DateHeure,Duree,Theme,Descriptif,Longitude,Latitude")] Evenement evenement)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace SG_ParkEvent.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nom,Lieu,DateHeure,Duree,Theme,Descriptif, Longitude, Latitude")] Evenement evenement)
+        public ActionResult Edit([Bind(Include = "Id,Nom,Lieu,DateHeure,Duree,Theme,Descriptif,Longitude,Latitude")] Evenement evenement)
         {
             if (ModelState.IsValid)
             {
