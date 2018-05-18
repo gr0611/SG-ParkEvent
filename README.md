@@ -40,3 +40,13 @@
 - Révision parcours client
 - API Google Maps : 
   - Affichage de la map avec les markers sur les parkings rennais (utilisation api rennes métropole + api google maps)
+
+### Jeudi 17/05
+- Gestion des rôles pour afficher liens pour CRUD que pour admin
+- Champs autocomplétion sur la map pour adresse départ
+- Intégration des maps dans Events/Détails
+
+### Vendredi 18/05
+- Ajout slider images
+- Ajout autocomplétion pour champs lieu dans création event
+- Récupération des latitudes et des longitudes 
