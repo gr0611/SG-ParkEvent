@@ -41,11 +41,11 @@ function getParks(){
         }
       })
       customParks.push({
-        name : park.parkInformation.name,
-        status : park.parkInformation.status,
-        max :park.parkInformation.max,
-        free: park.parkInformation.free,
-        id : park.id,
+        name: park.parkInformation && park.parkInformation.name,
+        status: park.parkInformation && park.parkInformation.status,
+        max: park.parkInformation &&  park.parkInformation.max,
+        free: park.parkInformation &&  park.parkInformation.free,
+        id: park.parkInformation && park.id,
         coordinatesLat : geo[1],
         coordinatesLng : geo[0],
       })
