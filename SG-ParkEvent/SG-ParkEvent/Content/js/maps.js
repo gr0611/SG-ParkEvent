@@ -190,5 +190,4 @@ var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'
 }
 
 
-//APIKEY = AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y
 /********************************************/
