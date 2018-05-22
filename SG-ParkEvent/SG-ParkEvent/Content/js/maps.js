@@ -31,14 +31,14 @@ function getParks(){
   var parks = maps.parks;
   var features = maps.features.features;
   var customParks = [];
-  // var lat =null;
-  // var lng = null;
+  //var lat =null;
+  //var lng = null;
   parks.forEach(function(park){
     var geo = null;
       features.forEach(function(feature){
         if(park.id == feature.id){
-          geo = feature.geometry.coordinates;
-        }
+            geo = feature.geometry.coordinates;
+          }
       })
       customParks.push({
         name: park.parkInformation && park.parkInformation.name,
@@ -53,20 +53,29 @@ function getParks(){
   return customParks;
 }
 //var locations = getParks();
-var locations =[]
+var locations = []
+event = getEventId($("#modal1").attr("data-id"));
+var myLatLng = { lat: event["Latitude"], lng: event["Longitude"] }
+var markerEvent = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: event["Nom"]
+});
+
 items = getParks();
+
 items.forEach(function(item){
    locations.push({
      lat:item.coordinatesLat, lng: item.coordinatesLng
    })
- })
-console.log("locations",locations);
- var markers = locations.map(function(location, i) {
+})
+var markers = locations.map(function(location, i) {
    return new google.maps.Marker({
      position: location,
      label: labels[i % labels.length]
    });
 });
+
 
   // Add a marker clusterer to manage the markers.
   var markerCluster = new MarkerClusterer(map, markers,
@@ -138,10 +147,35 @@ var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'
          });
        }
 
+  
+
        //var depart = null;
        //var arrivee = null;
-       //var distance = google.maps.geometry.spherical.computeDistanceBetween( depart, arrivee )
-     }
+    //var distance = google.maps.geometry.spherical.computeDistanceBetween( depart, arrivee )
+
+       function getEventId(id) {
+           var event = {};
+           var xmlhttp = new XMLHttpRequest();
+           var url = window.location.origin + "/Evenements/GetEventsDataById/" + id;
+           xmlhttp.open("GET", url, false);
+           xmlhttp.onreadystatechange = function () {
+              event = JSON.parse(xmlhttp.responseText);
+           };
+           xmlhttp.send(null);
+
+           return event;
+       }
+
+    //// Montrer les 3 parkings les plus proches
+    //   function getClosestParkings() {
+    //       var parkingLat = null;
+    //       var parkingLng = null;
+    //       var eventLat = null;
+    //       var eventLng = null;
+    //       var distance = null;
+    //   }
+}
+
 
 //APIKEY = AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y
 /********************************************/

@@ -9,7 +9,7 @@
     var callback = _.throttle(function () {
         var indexVisible = 0;
         var indexInvisible = 0;
-        $block_actus.each(function () {
+        $card.each(function () {
             if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.75 && $(this).hasClass('is-hidden')) {
                 var $this = $(this);
                 setTimeout(function () {

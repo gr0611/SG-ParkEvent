@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BO;
 using SG_ParkEvent.Models;
+using Newtonsoft;
 
 namespace SG_ParkEvent.Controllers
 { [Authorize]
@@ -123,6 +124,13 @@ namespace SG_ParkEvent.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        [AllowAnonymous]
+        public JsonResult GetEventsDataById(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var evenement = db.Evenement.Find(id);
+            return Json(evenement, JsonRequestBehavior.AllowGet);
         }
     }
 }

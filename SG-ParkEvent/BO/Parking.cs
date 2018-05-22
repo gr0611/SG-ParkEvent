@@ -58,5 +58,15 @@ namespace BO
             public List<Park> parks { get; set; }
             public Features features { get; set; }
         }
+
+        public class TarifsParkings
+        {
+            public string Parking { get; set; }
+            public string Horaires { get; set; }
+            public string Tarifs { get; set; }
+            public string Adresse { get; set; }
+            public int Capacite { get; set; }
+            public int Seuil_complet { get; set; }
+        }
     }
 }

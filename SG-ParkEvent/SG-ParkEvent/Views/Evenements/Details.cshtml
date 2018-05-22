@@ -54,7 +54,6 @@ else
                     <p>
                         Nombre de places totales : 711 <br>
                         Nombre de places totales : 135 <br />
-                        Coût horaire : 0.40€ / heure <br/>
                         Coût estimé : 4.20€
                     </p>
                 
@@ -64,7 +63,6 @@ else
                     <p>
                         Nombre de places totales : 1035<br>
                         Nombre de places totales : 568<br />
-                        Coût horaire : 0.75€ / heure <br/>
                         Coût estimé: 5.60€
                     </p>
              
@@ -75,19 +73,17 @@ else
                     <p>
                         Nombre de places totales : 152 <br>
                         Nombre de places totales : 52 <br />
-                        Coût horaire : 0.45€ / heure <br />
                         Coût estimé : 4.80€
                     </p>
                
                 
             </ul>
-            <div id="modal1" class="modal">
+            <div id="modal1" class="modal" data-id="@Model.Id">
                 <div class="modal-content">
                     <input id="pac-input" class="controls" type="text"
                            placeholder="Enter a location">
                     <div id="map" style="width:100%; height:100%"></div>
-
-
+                    
                 </div>
             </div>
         </div>
