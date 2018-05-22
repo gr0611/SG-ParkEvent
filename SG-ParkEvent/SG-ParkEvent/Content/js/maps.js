@@ -1,13 +1,13 @@
 function initialiser() {
-  var directionsDisplay;
-  var directionsService = new google.maps.DirectionsService();
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
   var map = new google.maps.Map(document.getElementById('map'), {
            mapTypeControl: false,
            zoom: 12,
            center: {lat: 48.1119800, lng: -1.6742900}
          });
 
-
+  directionsDisplay.setMap(map);
  // Create an array of alphabetical characters used to label the markers.
  var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -100,13 +100,8 @@ var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'
        autocomplete.addListener('place_changed', function() {
          infowindow.close();
          marker.setVisible(false);
-         var place = autocomplete.getPlace();
-         if (!place.geometry) {
-           // User entered the name of a Place that was not suggested and
-           // pressed the Enter key, or the Place Details request failed.
-           window.alert("No details available for input: '" + place.name + "'");
-           return;
-         }
+         var place = this.getPlace();
+         calculateAndDisplayRoute(directionsService, directionsDisplay, place);
 
          // If the place has a geometry, then present it on a map.
          if (place.geometry.viewport) {
@@ -147,6 +142,24 @@ var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'
          });
        }
 
+       function calculateAndDisplayRoute(directionsService, directionsDisplay, place) {
+           var input = /** @type {!HTMLInputElement} */ (
+             document.getElementById('pac-input'));
+           var autocomplete = new google.maps.places.Autocomplete(input);
+           console.log("place", place);
+           var end = myLatLng;
+           directionsService.route({
+               origin: place.geometry.location,
+               destination: end,
+               travelMode: 'DRIVING'
+           }, function (response, status) {
+               if (status === 'OK') {
+                   directionsDisplay.setDirections(response);
+               } else {
+                   window.alert('Directions request failed due to ' + status);
+               }
+           });
+       }
   
 
        //var depart = null;
