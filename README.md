@@ -5,7 +5,6 @@
   - Pour l'agence : Pouvoir créer et gérer un évènement
   - Pour le convive : Pouvoir choisir le parking le plus proche de l'évènement avec de la place et voir son itinéraire.
 
-
 ## Semaine 1 
 
 ### Lundi 14/05
@@ -50,3 +49,11 @@
 - Ajout slider images
 - Ajout autocomplétion pour champs lieu dans création event
 - Récupération des latitudes et des longitudes 
+
+
+
+## Semaine 2
+
+### Mardi 22/05
+- Affichage point evenement
+- Affichage itinéraire
