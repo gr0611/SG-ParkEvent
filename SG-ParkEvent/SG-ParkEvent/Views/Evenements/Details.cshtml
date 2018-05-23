@@ -1,5 +1,6 @@
 ﻿@model BO.Evenement
 
+
 @{
     ViewBag.Title = "Details";
 }
@@ -10,10 +11,16 @@
 <div class="row">
     <div class="col s12 m6">
         <div class="carousel carousel-slider">
-            <a class="carousel-item" href="#one!"><img src="~/Content/Image/concert.jpg"></a>
+
+            @* Si mon id d'event correspond à l'id event image enregistré alors j'affiche le carousel d'images correspondantes *@
+            @foreach (var img in Model.Image)
+            {                
+                        <a class="carousel-item" href="@img.Id"><img src="~/@img.PathImage"></a>
+            }
+            @*<a class="carousel-item" href="#one!"><img src="~/Content/Image/concert.jpg"></a>
             <a class="carousel-item" href="#two!"><img src="~/Content/Image/congres.jpg"></a>
             <a class="carousel-item" href="#three!"><img src="~/Content/Image/qashqai.jpg"></a>
-            <a class="carousel-item" href="#four!"><img src="~/Content/Image/reunion.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="~/Content/Image/reunion.jpg"></a>*@
         </div>
     </div>
     <div class="descriptif col s12 m6">
@@ -48,34 +55,15 @@ else
             <ul class="collection with-header">
                 <li class="collection-header"><h4>Parking</h4></li>
                 <li class="collection-item"><a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#modal1">Voir sur une carte</a></li>
-                <li class="collection-item avatar">
-                    <img src="~/Content/Image/parking.jpg" alt="parking" class="circle">
-                    <span class="title">Parking 1</span>
-                    <p>
-                        Nombre de places totales : 711 <br>
-                        Nombre de places totales : 135 <br />
-                        Coût estimé : 4.20€
-                    </p>
+                <li class="collection-item avatar"></li>
+                   
                 
-                <li class="collection-item avatar">
-                    <img src="~/Content/Image/parking.jpg" alt="parking" class="circle">
-                    <span class="title">Parking 2</span>
-                    <p>
-                        Nombre de places totales : 1035<br>
-                        Nombre de places totales : 568<br />
-                        Coût estimé: 5.60€
-                    </p>
+                <li class="collection-item avatar"></li>
+                    
              
            
-                <li class="collection-item avatar">
-                    <img src="~/Content/Image/parking.jpg" alt="parking" class="circle">
-                    <span class="title">Parking 3</span>
-                    <p>
-                        Nombre de places totales : 152 <br>
-                        Nombre de places totales : 52 <br />
-                        Coût estimé : 4.80€
-                    </p>
-               
+                <li class="collection-item avatar"></li>
+                  
                 
             </ul>
             <div id="modal1" class="modal" data-id="@Model.Id">
