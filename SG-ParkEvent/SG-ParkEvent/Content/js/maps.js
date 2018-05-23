@@ -179,6 +179,19 @@ var input = /** @type {!HTMLInputElement} */(document.getElementById('pac-input'
            return event;
        }
 
+       function getInfoPark(key) {
+           var parking = {};
+           var xmlhttp = new XMLHttpRequest();
+           var url = "https://data.rennesmetropole.fr/api/records/1.0/search/?dataset=export-api-parking-citedia&q=key:" + key;
+           xmlhttp.open("GET", url, false);
+           xmlhttp.onreadystatechange = function () {
+               parking = JSON.parse(xmlhttp.responseText);
+           };
+           xmlhttp.send(null);
+
+           return parking;
+       }
+
     //// Montrer les 3 parkings les plus proches
     //   function getClosestParkings() {
     //       var parkingLat = null;

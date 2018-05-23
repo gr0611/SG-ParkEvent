@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using BO;
 using SG_ParkEvent.Models;
 using Newtonsoft;
+using System.IO;
 
 namespace SG_ParkEvent.Controllers
-{ [Authorize]
+{
+    [Authorize]
     public class EvenementsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,7 +38,7 @@ namespace SG_ParkEvent.Controllers
             }
             return View(evenement);
         }
-     
+
         // GET: Evenements/Create
         public ActionResult Create()
         {
@@ -48,12 +50,38 @@ namespace SG_ParkEvent.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom,Lieu,DateHeure,Duree,Theme,Descriptif,Longitude,Latitude")] Evenement evenement)
+        public ActionResult Create([Bind(Include = "Id,Nom,Lieu,DateHeure,Duree,Theme,Descriptif,Longitude,Latitude")] Evenement evenement, HttpPostedFileBase[] files)
         {
+            
+
             if (ModelState.IsValid)
             {
+                foreach (HttpPostedFileBase file in files)
+                {
+                    if (file != null)
+                    {
+                        try
+                        {
+                            string _FileName = Path.GetFileName(file.FileName);
+                            string _path = Path.Combine(Server.MapPath("~/Content/Image"), _FileName);
+                            file.SaveAs(_path);
+                            Image img = new Image();
+                            img.PathImage = $"Content/Image/{_FileName}";
+                            img.Evenement = evenement;
+                            db.Image.Add(img);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                        }
+
+                    }
+                }
+
                 db.Evenement.Add(evenement);
                 db.SaveChanges();
+               
                 return RedirectToAction("Index");
             }
 

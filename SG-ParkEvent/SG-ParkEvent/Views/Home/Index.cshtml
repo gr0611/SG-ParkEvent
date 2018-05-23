@@ -8,5 +8,11 @@
     <h2>Bienvenue sur votre application</h2>
     <p class="lead">Ce site vous permettra de choisir un évènement , de vous y inscrire et de choisir le parking le plus proche.</p>
     <p><a href="~/Evenements" class="btn btn-primary btn-lg">Voir les évènements</a></p>
+        @if (User.IsInRole("Administrateur"))
+        {
+          
+            <p><a href="~/Evenements/Create" class="waves-effect waves-light btn">Créer un évènement</a></p>
+        
+    }
 </blockquote>
 

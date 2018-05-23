@@ -7,10 +7,10 @@
 <h2>Ajouter un évènement</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Evenements", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Evenement</h4>
         <hr />
@@ -26,21 +26,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Lieu, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="text" id="txtPlaces" style="width: 250px" placeholder="Enter a location" />
+                @Html.TextBox("Lieu", "", new { @type = "text", @id= "txtPlaces" })
                 @Html.ValidationMessageFor(model => model.Lieu, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-10">
-                @Html.HiddenFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control controls", id="event-lat" } })
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control controls", id = "event-lat" } })
                 @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-          <div class="col-md-10">               
-                @Html.HiddenFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control controls", id = "event-lon" } })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control controls", id = "event-lon" } })
                 @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,7 +55,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Duree, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col m10">
                 @Html.EditorFor(model => model.Duree, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Duree, "", new { @class = "text-danger" })
             </div>
@@ -63,7 +63,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Theme, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col m10">
                 @Html.EditorFor(model => model.Theme, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Theme, "", new { @class = "text-danger" })
             </div>
@@ -71,30 +71,41 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Descriptif, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col m10">
                 @Html.EditorFor(model => model.Descriptif, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Descriptif, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="file-field input-field">
-                <div class="btn">
-                    <span>File</span>
-                    <input type="file" multiple>
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
-                </div>
-            </div>
-        </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Ajouter" class="btn btn-default" />
+    
+            <div class="col m10">
+              <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        @Html.TextBox("files", "", new  { @type = "file", @multiple = "multiple" } )
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    </div>
                 </div>
             </div>
+            @*<div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" multiple name="files">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    </div>
+              </div>
+        </div>*@
+
+        <div>
+            <div class="col m10 ">
+                <input type="submit" value="Ajouter" class="btn" />
+            </div>
         </div>
+    </div>
 }
 
 <div>

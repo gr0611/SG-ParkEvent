@@ -24,5 +24,7 @@ namespace BO
         public virtual List<Client> Client { get; set; }
         //public virtual List<Parking> Parkings { get; set; }
 
+        
+
     }
 }
