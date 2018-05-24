@@ -76,13 +76,16 @@ function initialiser() {
                 <p>
                     Nombre de places totales : ${park.parkInformation.max}<br>
                     Nombre de places libres: ${park.parkInformation.free} <br>
-                    Affichage tarif 15min: ${infoParkings.records[0].fields.tarif_15} € pour 15 minutes
-                    Affichage tarif 30min: ${infoParkings.records[0].fields.tarif_30} € pour 30 minutes
-                    Affichage tarif 1h: ${infoParkings.records[0].fields.tarif_1h} € pour une heure
-                    Affichage tarif 1h30: ${infoParkings.records[0].fields.tarif_1h30} € pour une heure et demi
-                    Affichage tarif 2h: ${infoParkings.records[0].fields.tarif_2h} € pour deux heures
-                    Affichage tarif 3h: ${infoParkings.records[0].fields.tarif_3h} € pour trois heures
-                    Affichage tarif 4h: ${infoParkings.records[0].fields.tarif_4h} € pour quatre heures
+                    <h5>Tarif en vigueur dans le parking</h5>
+                    <ul>
+                    <li>Affichage tarif 15min: ${infoParkings.records[0].fields.tarif_15} Euros pour 15 minutes</li>
+                    <li>Affichage tarif 30min: ${infoParkings.records[0].fields.tarif_30} Euros pour 30 minutes</li>
+                    <li>Affichage tarif 1h: ${infoParkings.records[0].fields.tarif_1h} Euros pour une heure</li>
+                    <li>Affichage tarif 1h30: ${infoParkings.records[0].fields.tarif_1h30} Euros pour une heure et demi</li>
+                    <li>Affichage tarif 2h: ${infoParkings.records[0].fields.tarif_2h} Euros pour deux heures</li>
+                    <li>Affichage tarif 3h: ${infoParkings.records[0].fields.tarif_3h} Euros pour trois heures</li>
+                    <li>Affichage tarif 4h: ${infoParkings.records[0].fields.tarif_4h} Euros pour quatre heures</li>
+                    </ul>
                 </p>`
         $(".avatar:eq(" + i + ")").html(html);
     })

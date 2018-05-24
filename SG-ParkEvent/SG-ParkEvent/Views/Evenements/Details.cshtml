@@ -14,13 +14,13 @@
 
             @* Si mon id d'event correspond à l'id event image enregistré alors j'affiche le carousel d'images correspondantes *@
             @foreach (var img in Model.Image)
-            {                
-                        <a class="carousel-item" href="@img.Id"><img src="~/@img.PathImage"></a>
+            {
+                <a class="carousel-item" href="@img.Id"><img src="~/@img.PathImage"></a>
             }
             @*<a class="carousel-item" href="#one!"><img src="~/Content/Image/concert.jpg"></a>
-            <a class="carousel-item" href="#two!"><img src="~/Content/Image/congres.jpg"></a>
-            <a class="carousel-item" href="#three!"><img src="~/Content/Image/qashqai.jpg"></a>
-            <a class="carousel-item" href="#four!"><img src="~/Content/Image/reunion.jpg"></a>*@
+                <a class="carousel-item" href="#two!"><img src="~/Content/Image/congres.jpg"></a>
+                <a class="carousel-item" href="#three!"><img src="~/Content/Image/qashqai.jpg"></a>
+                <a class="carousel-item" href="#four!"><img src="~/Content/Image/reunion.jpg"></a>*@
         </div>
     </div>
     <div class="descriptif col s12 m6">
@@ -29,53 +29,46 @@
         <p><i class="tiny material-icons teal-text">location_on</i>@Html.DisplayFor(model => model.Lieu)</p>
         <p><i class="tiny material-icons teal-text">date_range</i>@Html.DisplayFor(model => model.DateHeure)</p>
         <p><i class="tiny material-icons teal-text">timer</i>@Html.DisplayFor(model => model.Duree)</p>
-     </div>
+    </div>
 </div>
 
 
 <div class="actions">
-@if (User.IsInRole("Administrateur"))
-{
-    <p>
-        @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Voir la liste des évènements", "Index") |
-    </p>
-}
-else
-{
-    @Html.ActionLink("Voir la liste des évènements", "Index") 
-}
+    @if (User.IsInRole("Administrateur"))
+    {
+        <p>
+            @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Voir la liste des évènements", "Index") |
+        </p>
+    }
+    else
+    {
+        @Html.ActionLink("Voir la liste des évènements", "Index")
+    }
 </div>
 <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger pulse" href="#modal">Voir les parkings</a>
+<a class="waves-effect waves-light btn modal-trigger pulse" href="#modal">Voir les parkings</a>
 
 <!-- Modal Structure -->
-    <div id="modal" class="modal bottom-sheet">
-        <div class="modal-content">
-            <ul class="collection with-header">
-                <li class="collection-header"><h4>Parking</h4></li>
-                <li class="collection-item"><a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#modal1">Voir sur une carte</a></li>
-                <li class="collection-item avatar"></li>
-                   
-                
-                <li class="collection-item avatar"></li>
-                    
-             
-           
-                <li class="collection-item avatar"></li>
-                  
-                
-            </ul>
-            <div id="modal1" class="modal" data-id="@Model.Id">
-                <div class="modal-content">
-                    <input id="pac-input" class="controls" type="text"
-                           placeholder="Enter a location">
-                    <div id="map" style="width:100%; height:100%"></div>
-                    
-                </div>
+<div id="modal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <ul class="collection with-header">
+            <li class="collection-header"><h4>Parking</h4></li>
+            <li class="collection-item"><a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#modal1">Voir sur une carte</a></li>
+            <li class="collection-item avatar"></li>
+            <li class="collection-item avatar"></li>
+            <li class="collection-item avatar"></li>
+        </ul>
+        <div id="modal1" class="modal" data-id="@Model.Id">
+            <div class="modal-content">
+                <input id="pac-input" class="controls" type="text"
+                       placeholder="Enter a location">
+                <div id="map" style="width:100%; height:100%"></div>
+
             </div>
         </div>
     </div>
+</div>
 
 
 
