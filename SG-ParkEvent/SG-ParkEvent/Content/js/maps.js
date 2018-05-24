@@ -66,9 +66,9 @@ function initialiser() {
 
     // gestion infos parking
     var maps = urlToJson();
-    var parks = maps.parks;
+    var parkings = maps.parks;
     
-    parks.forEach(function (park, i) {
+    parkings.forEach(function (park, i) {
         var infoParkings = getInfoPark(park.parkInformation.name);
         console.log("info", infoParkings)
         var html = `<img src="/Content/Image/parking.jpg" alt="parking" class="circle">
@@ -78,6 +78,7 @@ function initialiser() {
                     Nombre de places libres: ${park.parkInformation.free} <br>
                     <h5>Tarif en vigueur dans le parking</h5>
                     <ul>
+
                     <li>Affichage tarif 15min: ${infoParkings.records[0].fields.tarif_15} Euros pour 15 minutes</li>
                     <li>Affichage tarif 30min: ${infoParkings.records[0].fields.tarif_30} Euros pour 30 minutes</li>
                     <li>Affichage tarif 1h: ${infoParkings.records[0].fields.tarif_1h} Euros pour une heure</li>
