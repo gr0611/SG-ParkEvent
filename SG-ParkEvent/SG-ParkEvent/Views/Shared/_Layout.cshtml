@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -11,65 +11,69 @@
           rel="stylesheet">
     <link href="~/Content/Materialize/css/materialize.min.css" rel="stylesheet"
           type="text/css" />
+    <link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     <script type="text/javascript"
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="~/Content/Materialize/js/materialize.min.js"></script>
     <script src="~/Content/js/JavaScript.js"></script>
 
-  
+
 </head>
 @*<body onload="initialiser()">*@
 <body>
-        <div class="navbar-fixed">
-            <nav class="teal darken-2">
-                <div class="nav-wrapper">
-                    <a href="/" class="brand-logo center">SG Event</a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="left hide-on-med-and-down">
-                        <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
-                    </ul>
-                    <ul class="right hide-on-med-and-down">
-                        <li>@Html.Partial("_LoginPartial")</li>
-                    </ul>
+    <div class="navbar-fixed">
+        <nav class="teal darken-2">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo center">SG Event</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="left hide-on-med-and-down">
+                    <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li>@Html.Partial("_LoginPartial")</li>
+                </ul>
 
-                </div>
-            </nav>
-        </div>
-
-        <ul class="sidenav" id="mobile-demo">
-            @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
-            <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
-            <li>@Html.Partial("_LoginPartial")</li>
-        </ul>
-
-
-        <div class="container">
-            @RenderBody()
-            <hr />
-        </div>
-        <footer class="page-footer teal darken-2">
-            <div class="footer-copyright">
-                <p>&copy; @DateTime.Now.Year - My SG Application</p>
             </div>
-        </footer>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-demo">
+        @*<li>@Html.ActionLink("Clients", "Index", "Clients")</li>*@
+        <li>@Html.ActionLink("Evenements", "Index", "Evenements")</li>
+        <li>@Html.Partial("_LoginPartial")</li>
+    </ul>
 
 
-        @Scripts.Render("~/bundles/jquery")
-        @*@Scripts.Render("~/bundles/bootstrap")*@
-        @RenderSection("scripts", required: false)
-        @* Gestion de la map *@
+    <div class="container">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer class="page-footer teal darken-2">
+        <div class="footer-copyright">
+            <p>&copy; @DateTime.Now.Year - My SG Application</p>
+        </div>
+    </footer>
 
 
-         <script src="~/Content/js/maps.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+    @* Gestion de la map *@
+
+
+    <script src="~/Content/js/maps.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y&libraries=places,geometry&callback=initialiser"></script>
-   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiUoBBAdg7beOlYsRuJsGO2vD0yZBa78Y&libraries=places,geometry&callback=initialiser"></script>
 
 
-      <!--  <script src="~/Content/js/autocomplete_google.js"></script> -->
-        <script src="~/Content/js/underscore.js"></script>
-        <script src="~/Content/js/appears-on-scroll.js"></script>
 
-    </body>
+    <!--  <script src="~/Content/js/autocomplete_google.js"></script> -->
+    <script src="~/Content/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="~/Content/js/Datetimepicker.js"></script>
+    <script src="~/Content/js/autocomplete_google.js"></script>
+    <script src="~/Content/js/appears-on-scroll.js"></script>
+
+
+</body>
 </html>

@@ -2,15 +2,14 @@ function initialiser() {
     console.log("INITIALISATION EN COURS .... VUEILLEZ PATIENTEZ ... BIP TUTUTUTU GRRRRRR ")
     const apiUrl = "http://data.citedia.com/r1/parks/?crs=EPSG:4326";
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    event = getEventId($("#modal1").attr("data-id"));
+    var myLatLng = new google.maps.LatLng(event.Latitude, event.Longitude);
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
         mapTypeControl: false,
-        zoom: 12,
-        center: {
-            lat: 48.1119800,
-            lng: -1.6742900
-        }
+        zoom: 13,
+        center: myLatLng
     });
 
     directionsDisplay.setMap(map);
@@ -24,8 +23,8 @@ function initialiser() {
     // Traitement principal
     var origin = null;
     var locations = []
-    event = getEventId($("#modal1").attr("data-id"));
-    var myLatLng = new google.maps.LatLng(event.Latitude, event.Longitude);
+    
+    
     var markerEvent = new google.maps.Marker({
         position: myLatLng,
         map: map,
@@ -186,7 +185,7 @@ function initialiser() {
                 <p>
                     Nombre de places totales : ${park.max}<br>
                     Nombre de places libres: ${park.free} <br>
-                    <strong>Estimations de tarifs dans le parking en journée</strong>
+                    <strong>Estimations de tarifs dans le parking en journee</strong>
                     <ul>
                     <li>Affichage tarif 15min: ${infoParkings.records[0] && infoParkings.records[0].fields.tarif_15} Euros pour 15 minutes</li>
                     <li>Affichage tarif 30min: ${infoParkings.records[0] && infoParkings.records[0].fields.tarif_30} Euros pour 30 minutes</li>

@@ -48,7 +48,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateHeure, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateHeure, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateHeure, new { htmlAttributes = new { @class = "form-control", id = "datetimepicker" } })
                 @Html.ValidationMessageFor(model => model.DateHeure, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -81,7 +81,7 @@
             <div class="col m10">
               <div class="file-field input-field">
                     <div class="btn">
-                        <span>File</span>
+                        <span>Fichier</span>
                         @Html.TextBox("files", "", new  { @type = "file", @multiple = "multiple" } )
                     </div>
                     <div class="file-path-wrapper">
