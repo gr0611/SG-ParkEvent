@@ -15,13 +15,14 @@ function initialiser() {
 
     directionsDisplay.setMap(map);
     // Create an array of alphabetical characters used to label the markers.
-    
+
 
     // Add some markers to the map.
     // Note: The code uses the JavaScript Array.prototype.map() method to
     // create an array of markers based on a given "locations" array.
     // The map() method here has nothing to do with the Google Maps API.
     // Traitement principal
+    var origin = null;
     var locations = []
     event = getEventId($("#modal1").attr("data-id"));
     var myLatLng = new google.maps.LatLng(event.Latitude, event.Longitude);
@@ -35,7 +36,7 @@ function initialiser() {
     AddMarkers(items);
     displayParkingInfo(items);
 
-
+    
 
 
     function urlToJson() {
@@ -92,14 +93,25 @@ function initialiser() {
 
     // on a la distance entre l'évent et tout les parkings, on va les trier et récupérer les 3 premiers
     function AddMarkers(items) {
-        var markers = items.map(function (item, i) {
-            return new google.maps.Marker({
-                position: {
-                    lat: item.coordinatesLat,
-                    lng: item.coordinatesLng
-                },
-                label: labels[i % labels.length]
+        const markers = [];
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        items.forEach(function(item, i){
+            const position =  {
+                lat: item.coordinatesLat,
+                lng: item.coordinatesLng
+            };
+            const marker = new google.maps.Marker({
+                position,
+                map,
+                icon: iconBase + 'parking_lot_maps.png',
+                label: labels[i % labels.length],
+                title: item.name
             });
+            google.maps.event.addListener(marker,'click',function() {
+                const myParkLatLng = marker.position;
+                calculateAndDisplayRoute(directionsService, directionsDisplay, myParkLatLng);
+            });
+            markers.push(marker);
         });
         var markerCluster = new MarkerClusterer(map, markers, {
             imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
@@ -119,45 +131,45 @@ function initialiser() {
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
 
-    //var infowindow = new google.maps.InfoWindow();
-    //var marker = new google.maps.Marker({
-    //  map: map,
-    //  anchorPoint: new google.maps.Point(0, -29)
-    //});
+    var infowindow = new google.maps.InfoWindow();
+    var marker = new google.maps.Marker({
+      map: map,
+      anchorPoint: new google.maps.Point(0, -29),
+    });
 
     autocomplete.addListener('place_changed', function () {
         infowindow.close();
         marker.setVisible(false);
-        var place = this.getPlace();
-        calculateAndDisplayRoute(directionsService, directionsDisplay, place);
+        origin = this.getPlace();
+        calculateAndDisplayRoute(directionsService, directionsDisplay, myLatLng);
 
         // If the place has a geometry, then present it on a map.
-        if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
+        if (origin.geometry.viewport) {
+            map.fitBounds(origin.geometry.viewport);
         } else {
-            map.setCenter(place.geometry.location);
+            map.setCenter(origin.geometry.location);
             map.setZoom(17); // Why 17? Because it looks good.
         }
         marker.setIcon( /** @type {google.maps.Icon} */({
-            url: place.icon,
+            url: origin.icon,
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(35, 35)
         }));
-        marker.setPosition(place.geometry.location);
+        marker.setPosition(origin.geometry.location);
         marker.setVisible(true);
 
         var address = '';
-        if (place.address_components) {
+        if (origin.address_components) {
             address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
+              (origin.address_components[0] && origin.address_components[0].short_name || ''),
+              (origin.address_components[1] && origin.address_components[1].short_name || ''),
+              (origin.address_components[2] && origin.address_components[2].short_name || '')
             ].join(' ');
         }
 
-        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+        infowindow.setContent('<div><strong>' + origin.name + '</strong><br>' + address);
         infowindow.open(map, marker);
     });
 
@@ -170,11 +182,11 @@ function initialiser() {
             console.log("info", infoParkings)
 
             var html = `<img src="/Content/Image/parking.jpg" alt="parking" class="circle">
-                <span class="title">${park.name}</span>
+                <h3 class="title">${park.name}</h3>
                 <p>
                     Nombre de places totales : ${park.max}<br>
                     Nombre de places libres: ${park.free} <br>
-                    <h5>Tarif en vigueur dans le parking</h5>
+                    <strong>Estimations de tarifs dans le parking en journ�e</strong>
                     <ul>
                     <li>Affichage tarif 15min: ${infoParkings.records[0] && infoParkings.records[0].fields.tarif_15} Euros pour 15 minutes</li>
                     <li>Affichage tarif 30min: ${infoParkings.records[0] && infoParkings.records[0].fields.tarif_30} Euros pour 30 minutes</li>
@@ -198,14 +210,13 @@ function initialiser() {
         });
     }
 
-    function calculateAndDisplayRoute(directionsService, directionsDisplay, place) {
+    function calculateAndDisplayRoute(directionsService, directionsDisplay, end) {
         var input = /** @type {!HTMLInputElement} */ (
           document.getElementById('pac-input'));
         var autocomplete = new google.maps.places.Autocomplete(input);
-        console.log("place", place);
-        var end = myLatLng;
+        console.log("origin", origin);
         directionsService.route({
-            origin: place.geometry.location,
+            origin: origin.geometry.location,
             destination: end,
             travelMode: 'DRIVING'
         }, function (response, status) {
