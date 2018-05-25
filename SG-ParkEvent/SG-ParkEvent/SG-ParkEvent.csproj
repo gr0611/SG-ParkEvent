@@ -228,9 +228,12 @@
     <Content Include="Content\Image\parking.jpg" />
     <Content Include="Content\Image\qashqai.jpg" />
     <Content Include="Content\Image\reunion.jpg" />
+    <Content Include="Content\jquery.datetimepicker.min.css" />
     <Content Include="Content\js\appears-on-scroll.js" />
     <Content Include="Content\js\autocomplete_google.js" />
+    <Content Include="Content\js\Datetimepicker.js" />
     <Content Include="Content\js\JavaScript.js" />
+    <Content Include="Content\js\jquery.datetimepicker.full.min.js" />
     <Content Include="Content\js\maps.js" />
     <Content Include="Content\js\underscore.js" />
     <Content Include="Content\Materialize\css\materialize.css" />
